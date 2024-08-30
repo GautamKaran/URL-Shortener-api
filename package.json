@@ -1,0 +1,17 @@
+{
+  "name": "url-shortener-api",
+  "version": "1.0.0",
+  "description": "url-shortener-api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "url-shortener-api"
+  ],
+  "author": "Karan Kumar Gautam",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
