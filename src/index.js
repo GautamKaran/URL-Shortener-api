@@ -1,7 +1,10 @@
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 dotenv.config();
 
-const PORT =  process.env.PORT;
-console.log("PORT", PORT);
+import { app } from "./app.js";
 
-console.log("Welcome to Url-Shortener-api");
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running at PORT: ${PORT}`);
+});
