@@ -27,13 +27,41 @@ const generateNewShortURl = async (req, res) => {
 
     res.status(201).json({ message: "ShortURL Generated", shortURLcreated });
   } catch (error) {
-    console.log(error);
-    return res
-      .status(500)
-      .json({
-        error: `Something went wrong while genareting ShortUrl: ${error.message}`,
-      });
+    console.error("Error genareting ShortUrl", error);
+    return res.status(500).json({
+      error: `Something went wrong while genareting ShortUrl: ${error.message}`,
+    });
   }
 };
 
-export { generateNewShortURl };
+// shortid find and redirect that url
+const shortIdFindAndRedirectURL = async (req, res) => {
+  try {
+    const { shortID } = req.params;
+
+    if (!shortID) return res.status(400).json({ error: "shortID id required" });
+
+    const entry = await URL.findOneAndUpdate(
+      {
+        shortID,
+      },
+      {
+        $push: {
+          visitHistory: {
+            timestamp: Date.now(),
+          },
+        },
+      }
+    );
+
+    if (!entry) return res.status(404).json({ error: "ShortID not found" });
+
+    res.redirect(entry.redirectURL);
+  } catch (error) {
+    console.error(`Error during redirecting url : ${error}`);
+    return res.status(500).json({
+      error: `Something went wrong while redirecting url: ${error.message}`,
+    });
+  }
+};
+export { generateNewShortURl, shortIdFindAndRedirectURL };
