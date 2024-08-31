@@ -64,4 +64,26 @@ const shortIdFindAndRedirectURL = async (req, res) => {
     });
   }
 };
-export { generateNewShortURl, shortIdFindAndRedirectURL };
+
+const Analytics = async (req, res) => {
+  try {
+    const { shortID } = req.params;
+    if (!shortID) return res.status(400).json({ error: "shortID id required" });
+
+    const result = await URL.findOne({ shortID });
+    if (!result) return res.status(404).json({ error: "shortID not found!" });
+
+    return res.json({
+      shortID: result.shortID,
+      originalURL: result.redirectURL,
+      totalChicks: result.visitHistory.length,
+    });
+  } catch (error) {
+    console.error(`Error during Analytics by shortID : ${error}`);
+    return res.status(500).json({
+      error: `Something went wrong while Analytics by shortID: ${error.message}`,
+    });
+  }
+};
+
+export { generateNewShortURl, shortIdFindAndRedirectURL, Analytics };
