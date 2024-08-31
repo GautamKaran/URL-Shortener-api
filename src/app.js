@@ -10,4 +10,9 @@ app.use(
   })
 );
 
+app.use(express.json({ limit: "10kb" })); // form data
+app.use(express.urlencoded({ extended: true, limit: "10kb" }));
+app.use(express.static("public"));
+
+
 export { app };
