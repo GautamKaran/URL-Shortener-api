@@ -14,5 +14,10 @@ app.use(express.json({ limit: "10kb" })); // form data
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(express.static("public"));
 
+// routers import
+import urlRouter from "./routes/url.routes.js";
+
+// routers declaration
+app.use("/", urlRouter);
 
 export { app };
