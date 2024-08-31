@@ -9,6 +9,12 @@ const generateNewShortURl = async (req, res) => {
         error: "url is required",
       });
 
+    // Check isValidURL
+    const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+
+    const result = urlPattern.test(url.trim());
+    if (!result) return res.status(400).json({ error: "invalid URL" });
+
     // generate new shortID
     const nanoid = customAlphabet(
       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
