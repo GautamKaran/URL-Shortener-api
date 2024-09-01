@@ -43,3 +43,19 @@ To get started with the URL Shortener Service locally, follow these steps:
    [ http://localhost:8000](http://localhost:8000)
 
 ---
+
+## USE
+![image](https://github.com/user-attachments/assets/b9346076-ec0a-4a8a-a660-883ee08db1ac)
+![image](https://github.com/user-attachments/assets/2b7944bd-4f8c-4bc1-812f-9decf97d5c17)
+![image](https://github.com/user-attachments/assets/79f5724f-8910-45d6-a022-9e6e4bfc5bac)
+---
+
+
+## 🛠 Skills
+Javascript, Node.js, Express.js, MongoDB...
+
+## Authors
+- [@KaranKumarGuatam](https://github.com/karanGautam-dev)
+
+
+
