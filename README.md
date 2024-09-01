@@ -28,18 +28,28 @@ To get started with the URL Shortener Service locally, follow these steps:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-repo/url-shortener.git
+   git clone https://github.com/GautamKaran/URL-Shortener-api.git
    cd url-shortener-
    ```
 2. **Install Dependencies**
    ```bash
    npm install
    ```
-3. **Run the Application**
+3. **Environment Variables**
+  To run this project, you will need to add the following environment variables to your .env file
+    ```bash
+     PORT=3000
+
+     MONGODB_URI=mongodb+srv://your-username:your-password@cluster0.lxl3fsq.mongodb.net
+
+     CORS_ORIGIN=*
+   ```
+
+4. **Run the Application**
    ```bash
    npm run dev
    ```
-4. **Access the Service**: Open your browser and navigate to
+5. **Access the Service**: Open your browser and navigate to
    [ http://localhost:8000](http://localhost:8000)
 
 ---
